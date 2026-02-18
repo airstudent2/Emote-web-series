@@ -9,20 +9,6 @@ app = Flask(__name__)
 BOT_API_BASE_URL = "https://your-bot-project-name.up.railway.app"
 BOT_API_PORT = "30151"
 
-# ---------- LOGIN FIRST ----------
-@app.route('/')
-def home():
-    return redirect(url_for('login_page'))   # OPEN LOGIN FIRST
-
-@app.route('/login')
-def login_page():
-    return render_template("login.html")     # SHOW LOGIN.HTML
-
-# When user clicks login → go to index page
-@app.route('/do_login', methods=['POST'])
-def do_login():
-    # You can add password check here later
-    return redirect(url_for('index_page'))
 
 # ---------- MAIN PAGE ----------
 @app.route('/index')
